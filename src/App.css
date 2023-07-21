@@ -4,7 +4,6 @@
 
 header,
 footer {
-
   min-height: 20vh;
 
   display: flex;
@@ -18,7 +17,6 @@ footer {
 
   text-align: center;
   font-size: calc(10px + 2vmin);
-
 }
 
 .company-information,
@@ -29,14 +27,14 @@ footer {
 .news-post,
 .book-commercials {
   padding: 10px;
-  border: 2px orange solid;
+  /* border: 2px orange solid; */
 }
 
 nav,
 nav a {
   margin: 5px;
   padding: 10px;
-  border: 2px red solid;
+  /* border: 2px red solid; */
 }
 
 .current-news {
