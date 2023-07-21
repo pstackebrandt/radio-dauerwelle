@@ -3,7 +3,7 @@
 import React from "react";
 import "./eye-catcher.css";
 
-function EyeCatcher({ eyeCatcher }) {
+function NextEyeCatcher({ eyeCatcher }) {
   return (
     <div className="eye-catcher">
       <img src={eyeCatcher.imgSource} alt={`Foto von ${eyeCatcher.photoCredit}`} width="100px" height="100px" />
@@ -14,12 +14,16 @@ function EyeCatcher({ eyeCatcher }) {
   );
 }
 
-function EyeCatchers({ eyeCatchers }) {
+function EyeCatcher({ eyeCatchers }) {
+  // start with first eyeCatcher data object.
+  // after 10 seconds switch to next eyeCatcher data object.
+  // do so till every eyeCatcher data object has been shown.
+  // then start again with first eyeCatcher data object.
   return (
     <div className="eye-catchers">
-      {<EyeCatcher eyeCatcher={eyeCatchers[0]} />}
+      {<NextEyeCatcher eyeCatcher={eyeCatchers[0]} />}
     </div>
   );
 }
 
-export default EyeCatchers;
+export default EyeCatcher;
