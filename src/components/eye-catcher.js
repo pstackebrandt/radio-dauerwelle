@@ -6,7 +6,7 @@ import "./eye-catcher.css";
 function NextEyeCatcher({ eyeCatcher }) {
   return (
     <div className="eye-catcher">
-      <img className="mb-3" src={eyeCatcher.imgSource} alt={`Foto von ${eyeCatcher.photoCredit}`} width="100px" height="100px" />
+      <img className="mb-3" src={eyeCatcher.imgSource} alt={`Foto von ${eyeCatcher.photoCredit}`} width="200px" height="200px" />
 
       <h2>{eyeCatcher.header}</h2>
       <p>
