@@ -2,6 +2,10 @@
   padding: 5px;
 }
 
+body {
+  background-color: bg-primary;
+}
+
 header,
 footer {
   min-height: 20vh;
@@ -12,8 +16,8 @@ footer {
   align-items: center;
   justify-content: center;
 
-  background-color: #282c34;
-  color: white;
+  /* background-color: #282c34; */
+  /* color: white; */
 
   text-align: center;
   font-size: calc(10px + 2vmin);
@@ -40,4 +44,3 @@ nav a {
 .current-news {
   display: flex;
 }
-

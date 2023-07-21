@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import ShowSenderTeam from './show-sender-team';
 import EyeCatcher from './components/eye-catcher';
