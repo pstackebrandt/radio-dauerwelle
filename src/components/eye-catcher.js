@@ -17,10 +17,7 @@ function EyeCatcher({ eyeCatcher }) {
 function EyeCatchers({ eyeCatchers }) {
   return (
     <div className="eye-catchers">
-      {eyeCatchers.map(currentEyeCatcher => {
-        return <EyeCatcher key={currentEyeCatcher.id} eyeCatcher={currentEyeCatcher} />;
-      }
-      )}
+      {<EyeCatcher eyeCatcher={eyeCatchers[0]} />}
     </div>
   );
 }
