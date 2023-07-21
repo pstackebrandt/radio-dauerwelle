@@ -1,4 +1,5 @@
 import './app.css';
+import ShowSenderTeam from './show-sender-team';
 
 /**
  * Baut die Internet Seite des Radiosenders
@@ -176,29 +177,160 @@ function App() {
           "stateProvince": "Harmonieprovinz",
           "country": "Melodienien"
         }
+      },
+      {
+        "id": "2",
+        "name": {
+          "firstName": "Mike",
+          "lastName": "Klang"
+        },
+        "role": "Tontechniker",
+        "hobbies": ["Heimkino", "BBQ", "Vintage-Audio-Geräte"],
+        "favoriteMusic": ["Electronica", "Hip-Hop"],
+        "salary": "45.000€",
+        "address": {
+          "street": "Soundallee",
+          "houseNumber": "11",
+          "zipCode": "98765",
+          "city": "Klangstadt",
+          "stateProvince": "Beatsland",
+          "country": "Audiopolis"
+        }
+      },
+      {
+        "id": "3",
+        "name": {
+          "firstName": "Sally",
+          "lastName": "Frequenz"
+        },
+        "role": "Nachrichtensprecherin",
+        "hobbies": ["Reisen", "Fotografie", "Rätsel lösen"],
+        "favoriteMusic": ["Folk", "Ambient", "Country"],
+        "salary": "42.000€",
+        "address": {
+          "street": "Schwingenweg",
+          "houseNumber": "23",
+          "zipCode": "54321",
+          "city": "Klangstadt",
+          "stateProvince": "Beatsland",
+          "country": "Frequenzien"
+        }
+      },
+      {
+        "id": "4",
+        "name": {
+          "firstName": "Max",
+          "lastName": "Vinyl"
+        },
+        "role": "Musikredakteur",
+        "hobbies": ["Plattensammeln", "Skaten", "Cocktailmixen"],
+        "favoriteMusic": ["Indie", "Punk", "Reggae"],
+        "salary": "38.000€",
+        "address": {
+          "street": "Schallstraße",
+          "houseNumber": "78",
+          "zipCode": "32198",
+          "city": "Melodienburg",
+          "stateProvince": "Harmonieprovinz",
+          "country": "Tuneasia"
+        }
+      },
+      {
+        "id": "5",
+        "name": {
+          "firstName": "Tina",
+          "lastName": "Rhythma"
+        },
+        "role": "Moderatorin",
+        "hobbies": ["Fitness", "Kochen", "Tanz"],
+        "favoriteMusic": ["Pop", "Dance", "R&B"],
+        "salary": "39.000€",
+        "address": {
+          "street": "Taktweg",
+          "houseNumber": "15",
+          "zipCode": "87654",
+          "city": "Rhythmusstadt",
+          "stateProvince": "Rhythmusland",
+          "country": "Groovestan"
+        }
+      },
+      {
+        "id": "6",
+        "name": {
+          "firstName": "Dave",
+          "lastName": "Echo"
+        },
+        "role": "DJ",
+        "hobbies": ["Reisen", "Fotografie", "Geschichte studieren"],
+        "favoriteMusic": ["Techno", "Trance", "House"],
+        "salary": "48.000€",
+        "address": {
+          "street": "Klanggasse",
+          "houseNumber": "99",
+          "zipCode": "23456",
+          "city": "Soundopolis",
+          "stateProvince": "Beatsland",
+          "country": "Acoustica"
+        }
+      },
+      {
+        "id": "7",
+        "name": {
+          "firstName": "Clara",
+          "lastName": "Symphony"
+        },
+        "role": "Musikjournalistin",
+        "hobbies": ["Lesen", "Wandern", "Klavierspielen"],
+        "favoriteMusic": ["Klassik", "Jazz", "World"],
+        "salary": "41.000€",
+        "address": {
+          "street": "Melodiendamm",
+          "houseNumber": "3b",
+          "zipCode": "78901",
+          "city": "Harmonieburg",
+          "stateProvince": "Harmonieprovinz",
+          "country": "Audiophilia"
+        }
+      },
+      {
+        "id": "8",
+        "name": {
+          "firstName": "Leo",
+          "lastName": "Bassline"
+        },
+        "role": "Sounddesigner",
+        "hobbies": ["Snowboarden", "Videospiele", "Gärtnern"],
+        "favoriteMusic": ["Hip-Hop", "Dubstep", "Trap"],
+        "salary": "47.000€",
+        "address": {
+          "street": "Rhythmusallee",
+          "houseNumber": "55",
+          "zipCode": "34567",
+          "city": "Rhythmusstadt",
+          "stateProvince": "Rhythmusland",
+          "country": "Beatstan"
+        }
+      },
+      {
+        "id": "9",
+        "name": {
+          "firstName": "Grace",
+          "lastName": "Crescendo"
+        },
+        "role": "Programmleiterin",
+        "hobbies": ["Kunsthandwerk", "Yoga", "Kochen"],
+        "favoriteMusic": ["Klassik", "Folk", "Blues"],
+        "salary": "55.000€",
+        "address": {
+          "street": "Harmoniestraße",
+          "houseNumber": "1",
+          "zipCode": "01234",
+          "city": "Melodienburg",
+          "stateProvince": "Harmonieprovinz",
+          "country": "Musicland"
+        }
       }
-    ]
-
-    function ShowSenderTeam({ employees }) {
-      return (
-        <div className="employees">
-          <h2>Unser Team</h2>
-          {employees.map(employee => {
-            return <ShowEmployee key={employee.id} employee={employee} />;
-          })}
-        </div>
-      );
-    }
-
-    function ShowEmployee({ employee }) {
-      return (
-        <div className="employee">
-          <h3>{employee.name.firstName}</h3>
-          <p>Beruf: {employee.role}</p>
-          <p>Lieblingsmusik: {employee.favoriteMusic.join(', ')}</p>
-        </div>
-      );
-    }
+    ];
 
     function ShowPost(currentPost) {
       return (
