@@ -1,6 +1,7 @@
 import './app.css';
 import ShowSenderTeam from './show-sender-team';
 import EyeCatcher from './components/eye-catcher';
+import PageTitle from './components/page-title';
 
 /**
  * Baut die Internet Seite des Radiosenders
@@ -36,20 +37,7 @@ function App() {
       },
     ];
 
-    function CompanyInformation() {
-
-      const companyInformation = {
-        name: "HipDipDauerwelle",
-        slogan: "Dein Radiosender auf Dauer...Welle"
-      }
-
-      return (
-        <div className="company-information">
-          <h1>{companyInformation.name}</h1>
-          <p>{companyInformation.slogan}</p>
-        </div>
-      );
-    }
+    
 
     function TopNav() {
       return (
@@ -66,7 +54,7 @@ function App() {
 
     return (
       <header>
-        <CompanyInformation />
+        <PageTitle />
         <TopNav />
         <EyeCatcher eyeCatchers={eyeCatchers} />
       </header>
