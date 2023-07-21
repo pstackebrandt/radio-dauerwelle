@@ -1,5 +1,6 @@
 import './app.css';
 import ShowSenderTeam from './show-sender-team';
+import EyeCatcher from './eye-catcher';
 
 /**
  * Baut die Internet Seite des Radiosenders
@@ -10,6 +11,30 @@ import ShowSenderTeam from './show-sender-team';
 function App() {
 
   function Header() {
+
+    const eyeCatchers = [
+      {
+        id: 0,
+        imgSource: "/images/pexels-eric-esma-894156.jpg",
+        header: "Samy Deluxe im Anmarsch",
+        teaser: "Samy Delux hat eine neue Single veröffentlicht. Simon Desu produzierte die Beats",
+        photoCredit: "Eric Esma"
+      },
+      {
+        id: 1,
+        imgSource: "/images/pexels-anete-lusina-5239964.jpg",
+        header: "2Pac - Lebt",
+        teaser: "Immer wieder gibt es Gerüchte das 2 Pac noch lebt. Neuste Sichtung in Texas...",
+        photoCredit: "Anete Lusina"
+      },
+      {
+        id: 2,
+        imgSource: "/images/pexels-maria-pop-339805.jpg",
+        header: "Eddie hat ausgedient!",
+        teaser: "Eddie bekommt ein neues Design, Zombies sind nicht meher Zeitgemäß!",
+        photoCredit: "Maria Pop"
+      },
+    ];
 
     function CompanyInformation() {
 
@@ -39,55 +64,11 @@ function App() {
       );
     }
 
-    function EyeCatcher() {
-
-      const eyeCatchers = [
-        {
-          id: 0,
-          imgSource: "/images/pexels-eric-esma-894156.jpg",
-          header: "Samy Deluxe im Anmarsch",
-          teaser: "Samy Delux hat eine neue Single veröffentlicht. Simon Desu produzierte die Beats",
-          photoCredit: "Eric Esma"
-        },
-        {
-          id: 1,
-          imgSource: "/images/pexels-anete-lusina-5239964.jpg",
-          header: "2Pac - Lebt",
-          teaser: "Immer wieder gibt es Gerüchte das 2 Pac noch lebt. Neuste Sichtung in Texas...",
-          photoCredit: "Anete Lusina"
-        },
-        {
-          id: 2,
-          imgSource: "/images/pexels-maria-pop-339805.jpg",
-          header: "Eddie hat ausgedient!",
-          teaser: "Eddie bekommt ein neues Design, Zombies sind nicht meher Zeitgemäß!",
-          photoCredit: "Maria Pop"
-        },
-      ];
-
-      function ShowEyeCatcher(currentEyeCatcher) {
-        return (
-          <div key={currentEyeCatcher.id} className="current-eye-catcher">
-            <img src={currentEyeCatcher.imgSource} alt={`Foto von ${currentEyeCatcher.photoCredit}`} width="100px" height="100px" />
-
-            <h2>{currentEyeCatcher.header}</h2>
-            <p>{currentEyeCatcher.teaser}<a href=" / ">weiterlesen</a></p>
-          </div>
-        );
-      }
-
-      return (
-        <div className="eye-catcher">
-          {eyeCatchers.map(currentEyeCatcher => ShowEyeCatcher(currentEyeCatcher))}
-        </div>
-      );
-    }
-
     return (
       <header>
         <CompanyInformation />
         <TopNav />
-        <EyeCatcher />
+        <EyeCatcher eyeCatchers={eyeCatchers} />
       </header>
     );
   }

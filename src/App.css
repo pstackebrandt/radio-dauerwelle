@@ -23,8 +23,8 @@ footer {
 
 .company-information,
 .top-nav,
+.eye-catchers,
 .eye-catcher,
-.current-eye-catcher,
 .current-news,
 .news-post,
 .book-commercials {
@@ -42,3 +42,4 @@ nav a {
 .current-news {
   display: flex;
 }
+
