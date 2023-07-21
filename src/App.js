@@ -138,8 +138,9 @@ function App() {
       }
     ]
 
-    const employees = [
+    const allEmployees = [
       {
+        "id": "0",
         "name": {
           "firstName": "Rocky",
           "lastName": "Rhythmus"
@@ -158,6 +159,7 @@ function App() {
         }
       },
       {
+        "id": "1",
         "name": {
           "firstName": "Melody",
           "lastName": "Harmonie"
@@ -176,6 +178,27 @@ function App() {
         }
       }
     ]
+
+    function ShowSenderTeam({ employees }) {
+      return (
+        <div className="employees">
+          <h2>Unser Team</h2>
+          {employees.map(employee => {
+            return <ShowEmployee key={employee.id} employee={employee} />;
+          })}
+        </div>
+      );
+    }
+
+    function ShowEmployee({ employee }) {
+      return (
+        <div className="employee">
+          <h3>{employee.name.firstName}</h3>
+          <p>Beruf: {employee.role}</p>
+          <p>Lieblingsmusik: {employee.favoriteMusic.join(', ')}</p>
+        </div>
+      );
+    }
 
     function ShowPost(currentPost) {
       return (
@@ -227,6 +250,7 @@ function App() {
       <main>
         <NewsSection />
         <BookCommercials />
+        <ShowSenderTeam employees={allEmployees} />
       </main>
     );
   }
