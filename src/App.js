@@ -3,6 +3,7 @@ import './app.css';
 import ShowSenderTeam from './show-sender-team';
 import EyeCatcher from './components/eye-catcher';
 import PageTitle from './components/page-title';
+import TopNavBar from './components/top-nav-bar';
 
 /**
  * Baut die Internet Seite des Radiosenders
@@ -38,25 +39,10 @@ function App() {
       },
     ];
 
-    
-
-    function TopNav() {
-      return (
-        <div className='top-nav'>
-          <nav>
-            <a href="/">Programm</a>
-            <a href="/">Playlist</a>
-            <a href="/">Werbung buchen</a>
-            <a href="/">Team</a>
-          </nav>
-        </div>
-      );
-    }
-
     return (
       <header>
+        <TopNavBar />
         <PageTitle />
-        <TopNav />
         <EyeCatcher eyeCatchers={eyeCatchers} />
       </header>
     );
