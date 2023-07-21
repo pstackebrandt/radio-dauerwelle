@@ -24,7 +24,6 @@ footer {
 }
 
 .company-information,
-.top-nav,
 .eye-catchers,
 .eye-catcher,
 .current-news,
@@ -34,12 +33,7 @@ footer {
   /* border: 2px orange solid; */
 }
 
-nav,
-nav a {
-  margin: 5px;
-  padding: 10px;
-  /* border: 2px red solid; */
-}
+
 
 .current-news {
   display: flex;

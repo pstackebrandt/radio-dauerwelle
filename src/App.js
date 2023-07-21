@@ -4,6 +4,7 @@ import ShowSenderTeam from './show-sender-team';
 import EyeCatcher from './components/eye-catcher';
 import PageTitle from './components/page-title';
 import TopNavBar from './components/top-nav-bar';
+import BottomNav from './components/bottom-nav';
 
 /**
  * Baut die Internet Seite des Radiosenders
@@ -34,7 +35,7 @@ function App() {
         id: 2,
         imgSource: "/images/pexels-maria-pop-339805.jpg",
         header: "Eddie hat ausgedient!",
-        teaser: "Eddie bekommt ein neues Design, Zombies sind nicht meher Zeitgemäß!",
+        teaser: "Eddie bekommt ein neues Design, Zombies sind nicht meher zeitgemäß!",
         photoCredit: "Maria Pop"
       },
     ];
@@ -344,15 +345,6 @@ function App() {
   }
 
   function Footer() {
-    function BottomNav() {
-      return (
-        <nav>
-          <a href="/">Impressum</a>
-          <a href="/">Datenschutz</a>
-        </nav>
-      );
-    }
-
     return (
       <footer>
         <BottomNav />
