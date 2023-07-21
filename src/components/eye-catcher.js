@@ -1,7 +1,7 @@
 // file: eye-catcher.js
 
 import React from "react";
-import "./app.css";
+import "./eye-catcher.css";
 
 function EyeCatcher({ eyeCatcher }) {
   return (
@@ -13,7 +13,6 @@ function EyeCatcher({ eyeCatcher }) {
     </div>
   );
 }
-
 
 function EyeCatchers({ eyeCatchers }) {
   return (

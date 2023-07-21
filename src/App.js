@@ -1,6 +1,6 @@
 import './app.css';
 import ShowSenderTeam from './show-sender-team';
-import EyeCatcher from './eye-catcher';
+import EyeCatcher from './components/eye-catcher';
 
 /**
  * Baut die Internet Seite des Radiosenders
