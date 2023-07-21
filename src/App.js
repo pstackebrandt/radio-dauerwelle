@@ -138,6 +138,45 @@ function App() {
       }
     ]
 
+    const employees = [
+      {
+        "name": {
+          "firstName": "Rocky",
+          "lastName": "Rhythmus"
+        },
+        "role": "Music Producer",
+        "hobbies": ["Tanzen", "Schlagzeugspielen", "Bergsteigen"],
+        "favoriteMusic": ["Rock", "Funk", "Jazz"],
+        "salary": "50.000€",
+        "address": {
+          "street": "Groovestraße",
+          "houseNumber": "42",
+          "zipCode": "12345",
+          "city": "Rhythmusstadt",
+          "stateProvince": "Rhythmusland",
+          "country": "Soundien"
+        }
+      },
+      {
+        "name": {
+          "firstName": "Melody",
+          "lastName": "Harmonie"
+        },
+        "role": "Hostess",
+        "hobbies": ["Singen", "Malen", "Yoga"],
+        "favoriteMusic": ["Pop", "Indie", "Klassik"],
+        "salary": "40.000€",
+        "address": {
+          "street": "Harmonieweg",
+          "houseNumber": "7a",
+          "zipCode": "56789",
+          "city": "Taktstadt",
+          "stateProvince": "Harmonieprovinz",
+          "country": "Melodienien"
+        }
+      }
+    ]
+
     function ShowPost(currentPost) {
       return (
         <div key={currentPost.id} className="news-post">
