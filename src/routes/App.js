@@ -24,6 +24,26 @@ import Error from "../pages/errors/Error";
 import Employees from "../pages/Employees";
 import NotFound from "../pages/NotFound";
 
+/*
+* Portierung:
+* Welcome == Startseite mit News und Bei uns Werben
+* Employees == Mitarbeiter
+* NotFound == Wenn eine URL angefragt wird die nicht existiert wird diese Seite aufgerufen.
+* errors == Error wird immer dann aufgerufen wenn ein Servefehler auftritt
+ */
+const router = createBrowserRouter(
+  createRoutesFromElements(
+
+    <Route path="/" element={<RootLayout />} errorElement={<Error />}>
+
+      <Route index element={<Welcome />} />
+
+      <Route path="employees" element={<Employees />} />
+
+      <Route path="*" element={<NotFound />} />
+    </Route>
+  )
+)
 
 /**
 Baut die Internet Seite des Radiosenders
