@@ -52,43 +52,47 @@ HipDipDauerwelle auf und gibt das zurueck.
 @returns HTML-Code der WebApp
  */
 function App() {
+  return (
+    <RouterProvider router={router} />
+  );
+}
 
-  function Header() {
+/* function Header() {
 
-    const eyeCatchers = [
-      {
-        id: 0,
-        imgSource: "/images/pexels-eric-esma-894156.jpg",
-        header: "Samy Deluxe im Anmarsch",
-        teaser: "Samy Delux hat eine neue Single veröffentlicht. Simon Desu produzierte die Beats",
-        photoCredit: "Eric Esma"
-      },
-      {
-        id: 1,
-        imgSource: "/images/pexels-anete-lusina-5239964.jpg",
-        header: "2Pac - Lebt",
-        teaser: "Immer wieder gibt es Gerüchte das 2 Pac noch lebt. Neuste Sichtung in Texas...",
-        photoCredit: "Anete Lusina"
-      },
-      {
-        id: 2,
-        imgSource: "/images/pexels-maria-pop-339805.jpg",
-        header: "Eddie hat ausgedient!",
-        teaser: "Eddie bekommt ein neues Design, Zombies sind nicht meher zeitgemäß!",
-        photoCredit: "Maria Pop"
-      },
-    ];
+  const eyeCatchers = [
+    {
+      id: 0,
+      imgSource: "/images/pexels-eric-esma-894156.jpg",
+      header: "Samy Deluxe im Anmarsch",
+      teaser: "Samy Delux hat eine neue Single veröffentlicht. Simon Desu produzierte die Beats",
+      photoCredit: "Eric Esma"
+    },
+    {
+      id: 1,
+      imgSource: "/images/pexels-anete-lusina-5239964.jpg",
+      header: "2Pac - Lebt",
+      teaser: "Immer wieder gibt es Gerüchte das 2 Pac noch lebt. Neuste Sichtung in Texas...",
+      photoCredit: "Anete Lusina"
+    },
+    {
+      id: 2,
+      imgSource: "/images/pexels-maria-pop-339805.jpg",
+      header: "Eddie hat ausgedient!",
+      teaser: "Eddie bekommt ein neues Design, Zombies sind nicht meher zeitgemäß!",
+      photoCredit: "Maria Pop"
+    },
+  ];
 
-    return (
-      <header>
-        <TopNavBar />
-        <PageTitle />
-        <EyeCatcher eyeCatchers={eyeCatchers} />
-      </header>
-    );
-  }
+  return (
+    <header>
+      <TopNavBar />
+      <PageTitle />
+      <EyeCatcher eyeCatchers={eyeCatchers} />
+    </header>
+  );
+} */
 
-  function MainContent() {
+/*   function MainContent() {
     const radioNews = [
       {
         id: 0,
@@ -381,23 +385,24 @@ function App() {
         <ShowSenderTeam employees={allEmployees} />
       </main>
     );
-  }
+  } */
 
-  function Footer() {
+/*   function Footer() {
     return (
       <footer>
         <BottomNav />
       </footer>
     );
-  }
+  } */
 
-  return (
+/*   return (
     <div className="app">
       <Header />
       <MainContent />
       <Footer />
     </div>
-  );
-}
+  ); */
+
+
 
 export default App;
