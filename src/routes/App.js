@@ -1,16 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './app.css';
-import ShowSenderTeam from './show-sender-team';
-import EyeCatcher from './components/eye-catcher';
-import PageTitle from './components/page-title';
-import TopNavBar from './components/top-nav-bar';
-import BottomNav from './components/bottom-nav';
+import './../styles/app.css';
+import ShowSenderTeam from '../show-sender-team';
+import EyeCatcher from '../components/eye-catcher';
+import PageTitle from '../components/page-title';
+import TopNavBar from '../components/top-nav-bar';
+import BottomNav from '../components/bottom-nav';
 
 /**
- * Baut die Internet Seite des Radiosenders
- * HipDipDauerwelle auf und gibt das zurueck.
- * 
- * @returns HTML-Code der WebApp
+Baut die Internet Seite des Radiosenders
+HipDipDauerwelle auf und gibt das zurueck.
+
+@returns HTML-Code der WebApp
  */
 function App() {
 
