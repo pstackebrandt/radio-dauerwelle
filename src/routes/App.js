@@ -1,10 +1,29 @@
+//ReactRouter Imports
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+} from "react-router-dom"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../styles/app.css';
+
 import ShowSenderTeam from '../show-sender-team';
 import EyeCatcher from '../components/eye-catcher';
 import PageTitle from '../components/page-title';
 import TopNavBar from '../components/top-nav-bar';
 import BottomNav from '../components/bottom-nav';
+
+//Layouts
+import RootLayout from "../layouts/RootLayout";
+
+//Pages
+import Welcome from "../pages/Welcome";
+import Error from "../pages/errors/Error";
+import Employees from "../pages/Employees";
+import NotFound from "../pages/NotFound";
+
 
 /**
 Baut die Internet Seite des Radiosenders
