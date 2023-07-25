@@ -35,6 +35,11 @@ footer {
   /* border: 2px orange solid; */
 }
 
+img {
+  max-width: 100px;
+  height: auto;
+} 
+
 .current-news {
   display: flex;
 }
