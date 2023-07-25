@@ -23,6 +23,8 @@ import Welcome from "../pages/Welcome";
 import Error from "../pages/errors/Error";
 import Employees from "../pages/Employees";
 import NotFound from "../pages/NotFound";
+import Playlist from "../pages/playlist";
+import PlaylistLayout from "../layouts/PlaylistLayout";
 
 /*
 * Portierung:
@@ -33,13 +35,16 @@ import NotFound from "../pages/NotFound";
  */
 const router = createBrowserRouter(
   createRoutesFromElements(
-
     <Route path="/" element={<RootLayout />} errorElement={<Error />}>
-
       <Route index element={<Welcome />} />
-
+      
+      <Route path="playlist" element={<PlaylistLayout />}>
+        <Route index element={<Playlist />} />
+      </Route>
+      
       <Route path="employees" element={<Employees />} />
       <Route path="eyecatcher" element={<EyeCatcher />} />
+
       <Route path="*" element={<NotFound />} />
     </Route>
   )
@@ -402,7 +407,5 @@ function App() {
       <Footer />
     </div>
   ); */
-
-
 
 export default App;

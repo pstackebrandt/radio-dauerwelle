@@ -1,6 +1,6 @@
 //ReactRouter Imports
 import { NavLink, Outlet } from 'react-router-dom'
-
+import TopNavBootstrap from '../pages/top-nav-bootstrap';
 import BottomNav from '../pages/bottom-nav';
 import logo from '../images/logo.svg';
 
@@ -25,12 +25,13 @@ export default function RootLayout() {
                         <p>Dein Radiosender auf Dauer...Welle</p>
                     </div>
 
-                    {/* todo check whether to use top-nav-var */}
+                    {/* by Rh,  use TopNavBootstrap */}
+                    {/* <TopNavBootstrap /> */}
                     <div className='top-nav'>
                         <nav>
-                            <NavLink to="/">Willkommen</NavLink>
-                            <NavLink to="/">Playlist</NavLink>
-                            <NavLink to="/">Werbung buchen</NavLink>
+                            <NavLink to="/">Willkommen</NavLink><br />
+                            <NavLink to="playlist">Playlist</NavLink><br />
+                            <NavLink to="/">Werbung buchen</NavLink><br />
                             <NavLink to="employees">Mitarbeiter</NavLink>
                         </nav>
                     </div>
@@ -59,7 +60,7 @@ export default function RootLayout() {
 
     function Footer() {
         return (
-            
+
             <footer>
                 <description>Footer von RH</description>
                 <nav>

@@ -101,6 +101,7 @@ export default function Welcome() {
             </div>
         );
     }
+
     return (
         <div className="welcome">
             <NewsSection />
