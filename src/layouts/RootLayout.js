@@ -2,6 +2,7 @@
 
 //ReactRouter Imports
 import { NavLink, Outlet } from 'react-router-dom'
+import TopNav from '../pages/top-nav';
 import logo from '../images/logo.svg';
 
 
@@ -26,14 +27,7 @@ export default function RootLayout() {
                     </div>
 
                     {/* by Rh */}
-                    <div className='top-nav'>
-                        <nav>
-                            <NavLink to="/">Willkommen</NavLink><br />
-                            <NavLink to="playlist">Playlist</NavLink><br />
-                            <NavLink to="advertisement">Werbung buchen</NavLink><br />
-                            <NavLink to="employees">Mitarbeiter</NavLink>
-                        </nav>
-                    </div>
+                    <TopNav />
                 </div>
 
                 {/* todo check whether to use eye-catcher component */}
