@@ -1,21 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TopNav() {
     return (
-        <div className='top-nav'>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
-                        <NavLink className="nav-link" activeClassName="active" exact to="/">Willkommen</NavLink>
-                        <NavLink className="nav-link" activeClassName="active" to="/playlist">Playlist</NavLink>
-                        <NavLink className="nav-link" activeClassName="active" to="/advertisement">Werbung buchen</NavLink>
-                        <NavLink className="nav-link" activeClassName="active" to="/employees">Mitarbeiter</NavLink>
-                    </div>
-                </div>
-            </nav>
-        </div>
+        <Navbar bg="light" expand="lg">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link as={NavLink} exact to="/" activeClassName="active">Willkommen</Nav.Link>
+                    <Nav.Link as={NavLink} to="/playlist" activeClassName="active">Playlist</Nav.Link>
+                    <Nav.Link as={NavLink} to="/advertisement" activeClassName="active">Werbung buchen</Nav.Link>
+                    <Nav.Link as={NavLink} to="/employees" activeClassName="active">Mitarbeiter</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     );
 }
 

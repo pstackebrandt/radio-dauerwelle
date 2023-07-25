@@ -13,7 +13,6 @@ import './../styles/app.css';
 import ShowSenderTeam from '../show-sender-team';
 import EyeCatcher from '../pages/eye-catcher';
 import PageTitle from '../pages/page-title';
-import TopNavBar from '../pages/top-nav-bar';
 import BottomNav from '../pages/bottom-nav';
 
 //Layouts
