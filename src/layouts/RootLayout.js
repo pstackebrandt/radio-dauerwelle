@@ -3,8 +3,8 @@
 //ReactRouter Imports
 import { NavLink, Outlet } from 'react-router-dom'
 import TopNav from '../pages/top-nav';
+import PageTitle from '../pages/page-title';
 import logo from '../images/logo.svg';
-
 
 /**
  * Repräsentiert das Hauptlayout,
@@ -18,17 +18,9 @@ export default function RootLayout() {
     function Header() {
         return (
             <header>
-                <div className='company-information-top-nav'>
+                <TopNav />
 
-                    {/* todo use component page-title */}
-                    <div className="company-information">
-                        <h1>HipDipDauerwelle</h1>
-                        <p>Dein Radiosender auf Dauer...Welle</p>
-                    </div>
-
-                    {/* by Rh */}
-                    <TopNav />
-                </div>
+                <PageTitle />
 
                 {/* todo check whether to use eye-catcher component */}
                 <div className="current-eye-catcher">
