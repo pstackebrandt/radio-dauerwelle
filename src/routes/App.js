@@ -6,6 +6,7 @@ import {
   RouterProvider
 } from "react-router-dom"
 
+// styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../styles/app.css';
 
@@ -17,6 +18,7 @@ import BottomNav from '../pages/bottom-nav';
 
 //Layouts
 import RootLayout from "../layouts/RootLayout";
+import PlaylistLayout from "../layouts/PlaylistLayout";
 
 //Pages
 import Welcome from "../pages/Welcome";
@@ -24,7 +26,7 @@ import Error from "../pages/errors/Error";
 import Employees from "../pages/Employees";
 import NotFound from "../pages/NotFound";
 import Playlist from "../pages/playlist";
-import PlaylistLayout from "../layouts/PlaylistLayout";
+import Advertisement from "../pages/advertisment";
 
 /*
 * Portierung:
@@ -38,12 +40,15 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />} errorElement={<Error />}>
       <Route index element={<Welcome />} />
       
+      <Route path="eyecatcher" element={<EyeCatcher />} />
+      
       <Route path="playlist" element={<PlaylistLayout />}>
         <Route index element={<Playlist />} />
       </Route>
+
+      <Route path="advertisement" element={<Advertisement />} />
       
       <Route path="employees" element={<Employees />} />
-      <Route path="eyecatcher" element={<EyeCatcher />} />
 
       <Route path="*" element={<NotFound />} />
     </Route>

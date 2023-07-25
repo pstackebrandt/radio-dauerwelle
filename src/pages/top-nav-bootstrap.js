@@ -10,7 +10,7 @@ const TopNavBootstrap = () => {
           <Nav>
             <NavLink to="/">Willkommen</NavLink>
             <NavLink to="playlist">Playlist</NavLink>
-            <NavLink to="/">Werbung buchen</NavLink>
+            <NavLink to="advertisement">Werbung buchen</NavLink>
             <NavLink to="employees">Mitarbeiter</NavLink>
           </Nav>
         </Container>

@@ -1,6 +1,6 @@
 //ReactRouter Imports
 import { NavLink, Outlet } from 'react-router-dom'
-import TopNavBootstrap from '../pages/top-nav-bootstrap';
+// import TopNavBootstrap from '../pages/top-nav-bootstrap';
 import BottomNav from '../pages/bottom-nav';
 import logo from '../images/logo.svg';
 
@@ -31,7 +31,7 @@ export default function RootLayout() {
                         <nav>
                             <NavLink to="/">Willkommen</NavLink><br />
                             <NavLink to="playlist">Playlist</NavLink><br />
-                            <NavLink to="/">Werbung buchen</NavLink><br />
+                            <NavLink to="advertisement">Werbung buchen</NavLink><br />
                             <NavLink to="employees">Mitarbeiter</NavLink>
                         </nav>
                     </div>
