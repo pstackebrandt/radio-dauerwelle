@@ -1,8 +1,12 @@
 // file: eye-catcher.js
+// for ideas and variants see https://chat.openai.com/share/3f480495-e1b2-414b-827c-3aa0f271fc01
 
 import React, { useState, useEffect } from "react";
 import "./eye-catcher.css";
 
+// Definition der NextEyeCatcher-Komponente, die den aktuellen "eyeCatcher" darstellt.
+// Diese Komponente bekommt den aktuellen "eyeCatcher" als prop übergeben.
+// Sie stellt diesen "eyeCatcher" als Bild, Überschrift und Teaser-Text dar.
 function NextEyeCatcher({ eyeCatcher }) {
   return (
     <div className="eye-catcher">
@@ -18,25 +22,34 @@ function NextEyeCatcher({ eyeCatcher }) {
 
 /* Show 1 eye catcher on screen. If we get data for more than 1 rerun eyecatcher after a while.  */
 function EyeCatcher({ eyeCatchers }) {
-  // start with first eyeCatcher data object.
-  // after n seconds switch to next eyeCatcher data object.
-  // do so till every eyeCatcher data object has been shown.
-  // then start again with first eyeCatcher data object.
+  // Definiere den aktuellen Index als State. Initialisiere ihn auf 0.
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Funktion zum Wechseln des Indexes in einem Intervall von 10 Sekunden
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % eyeCatchers.length);
-    }, 10000);
+    // Überprüfe, ob das "eyeCatchers"-Array existiert und nicht leer ist
+    if (eyeCatchers && eyeCatchers.length > 0) {
+      // Wenn "eyeCatchers" existiert und nicht leer ist, wechsle den Index in einem Intervall von 10 Sekunden.
+      // Das % (Modulo) Operator sorgt dafür, dass der Index wieder auf 0 zurückgesetzt wird, wenn er das Ende des Arrays erreicht hat.
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % eyeCatchers.length);
+      }, 10000);
 
-    // Aufräumarbeiten beim Entfernen der Komponente
-    return () => clearInterval(interval);
-  }, [eyeCatchers.length]);
+      // Aufräumen: Dieser Code wird ausgeführt, wenn die Komponente unmountet wird. Es beendet das Intervall, um Speicherlecks zu vermeiden.
+      return () => clearInterval(interval);
+    }
+  // Füge "eyeCatchers" als Abhängigkeit hinzu, damit useEffect neu ausgeführt wird, wenn sich "eyeCatchers" ändert.
+  }, [eyeCatchers]);
 
   return (
     <div className="eye-catchers">
-      <NextEyeCatcher eyeCatcher={eyeCatchers[currentIndex]} />
+      { // Überprüfe, ob das "eyeCatchers"-Array existiert, nicht leer ist und das aktuelle Element (eyeCatchers[currentIndex]) existiert
+        eyeCatchers && eyeCatchers.length > 0 && eyeCatchers[currentIndex] ? 
+        // Wenn alle Bedingungen erfüllt sind, rendere die "NextEyeCatcher"-Komponente mit dem aktuellen Element als Prop
+        <NextEyeCatcher eyeCatcher={eyeCatchers[currentIndex]} /> 
+        : 
+        // Ansonsten rendere null (nichts)
+        null 
+      } 
     </div>
   );
 }

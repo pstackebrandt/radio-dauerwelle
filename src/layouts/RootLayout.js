@@ -7,6 +7,8 @@ import PageTitle from '../pages/page-title';
 import EyeCatcher from '../pages/eye-catcher';
 import logo from '../images/logo.svg';
 
+import EyeCatcherWithData from '../data/eye-catcher-with-data';
+
 /**
  * Repräsentiert das Hauptlayout,
  * welches alle anderen Layouts
@@ -17,29 +19,6 @@ import logo from '../images/logo.svg';
 export default function RootLayout() {
 
     function Header() {
-        const eyeCatchers = [
-            {
-              id: 0,
-              imgSource: "/images/pexels-eric-esma-894156.jpg",
-              header: "Samy Deluxe im Anmarsch",
-              teaser: "Samy Delux hat eine neue Single veröffentlicht. Simon Desu produzierte die Beats",
-              photoCredit: "Eric Esma"
-            },
-            {
-              id: 1,
-              imgSource: "/images/pexels-anete-lusina-5239964.jpg",
-              header: "2Pac - Lebt",
-              teaser: "Immer wieder gibt es Gerüchte das 2 Pac noch lebt. Neuste Sichtung in Texas...",
-              photoCredit: "Anete Lusina"
-            },
-            {
-              id: 2,
-              imgSource: "/images/pexels-maria-pop-339805.jpg",
-              header: "Eddie hat ausgedient!",
-              teaser: "Eddie bekommt ein neues Design, Zombies sind nicht meher zeitgemäß!",
-              photoCredit: "Maria Pop"
-            },
-          ];
         
         return (
             <header>
@@ -47,8 +26,8 @@ export default function RootLayout() {
 
                 <PageTitle />
 
-                <EyeCatcher eyeCatchers={eyeCatchers}/>
-
+                <EyeCatcherWithData />
+                
                 {/* todo check whether to use eye-catcher component */}
                 <div className="current-eye-catcher">
                     <img src={logo} alt="Aktuelles Bild" />
