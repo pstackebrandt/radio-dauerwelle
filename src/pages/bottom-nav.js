@@ -6,6 +6,7 @@ function BottomNav() {
       activeKey="/home"
       onSelect={(selectedKey) => alert(`Target not set, selected key '${selectedKey}'`)}
     >
+    <description>Footer von PS</description>
       <Nav.Item>
         <Nav.Link href="show impress">Impressum</Nav.Link>
       </Nav.Item>

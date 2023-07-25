@@ -10,10 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../styles/app.css';
 
 import ShowSenderTeam from '../show-sender-team';
-import EyeCatcher from '../components/eye-catcher';
-import PageTitle from '../components/page-title';
-import TopNavBar from '../components/top-nav-bar';
-import BottomNav from '../components/bottom-nav';
+import EyeCatcher from '../pages/eye-catcher';
+import PageTitle from '../pages/page-title';
+import TopNavBar from '../pages/top-nav-bar';
+import BottomNav from '../pages/bottom-nav';
 
 //Layouts
 import RootLayout from "../layouts/RootLayout";
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
       <Route index element={<Welcome />} />
 
       <Route path="employees" element={<Employees />} />
-
+      <Route path="eyecatcher" element={<EyeCatcher />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )

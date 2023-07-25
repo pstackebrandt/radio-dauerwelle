@@ -1,7 +1,9 @@
 //ReactRouter Imports
 import { NavLink, Outlet } from 'react-router-dom'
 
+import BottomNav from '../pages/bottom-nav';
 import logo from '../images/logo.svg';
+
 
 /**
  * Repräsentiert das Hauptlayout,
@@ -11,6 +13,7 @@ import logo from '../images/logo.svg';
  * des Outlet Tags angezeigt werden.
  */
 export default function RootLayout() {
+
     function Header() {
         return (
             <header>
@@ -58,8 +61,10 @@ export default function RootLayout() {
         return (
             
             <footer>
+                <description>Footer von RH</description>
                 <nav>
                     {/* todo use component bottom-nav */}
+                    <NavLink to="/">Home</NavLink>
                     <NavLink to="/">Impressum</NavLink>
                     <NavLink to="/">Datenschutz</NavLink>
                 </nav>
@@ -72,6 +77,7 @@ export default function RootLayout() {
             <Header />
             <MainContent />
             <Footer />
+            <BottomNav />
         </div>
     );
 }

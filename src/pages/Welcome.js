@@ -3,7 +3,7 @@ import React from "react"
 import logo from '../images/logo.svg';
 
 /**
- * Ist die Startseite der React-Applikation
+ * Ist die Startseite der React-Applikation von RH
  * Hier finden sich die News und Werbung
  * @returns 
  */
