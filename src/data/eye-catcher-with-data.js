@@ -1,8 +1,9 @@
-// EyeCatchersData.js
+// file eye-catcher-with-data.js
+
 import React, { useState, useEffect } from 'react';
 import EyeCatcher from '../pages/eye-catcher';
 
-export default function EyeCatchersData() {
+export default function EyeCatcherWithData() {
     const [eyeCatchers, setEyeCatchers] = useState([]);
 
     useEffect(() => {
