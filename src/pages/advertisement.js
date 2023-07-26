@@ -15,11 +15,21 @@ export default function Advertisement() {
     const [frequency3x, setFrequency3x] = useState(150);
     const [frequency6x, setFrequency6x] = useState(250);
     const [showSummary, setShowSummary] = useState(false);
+    const [totalCost, setTotalCost] = useState(0);
 
-    const totalCost = spotLengthSeconds * costPerSecond;
+    const calculateTotalCost = () => {
+        let totalCost = 0;
+        totalCost += spotLengthSeconds * costPerSecond;
+
+        return totalCost;
+    }
 
     const onAdvertisementSubmit = (e) => {
         e.preventDefault();
+        // Gesamtkosten berechnen und im Zustand speichern
+        const calculatedTotalCost = calculateTotalCost();
+        setTotalCost(calculatedTotalCost);
+
         setShowSummary(true);
     };
 
