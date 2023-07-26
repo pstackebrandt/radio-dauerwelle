@@ -5,13 +5,18 @@ import React, { useState } from "react";
 export default function Advertisement() {
     const [name, setName] = useState("Ihr name");
     const [email, setEmail] = useState("ihre@email.adresse");
-    const [telephone, setTelephone] = useState("0123456789"); const [costPerSecond, setCostPerSecond] = useState(25);
+    const [telephone, setTelephone] = useState("0123456789"); 
+    
+    const [spotLengthSeconds, setSpotLengthSeconds] = useState(10);
+    const [costPerSecond, setCostPerSecond] = useState(25);
     const [placementBeforeNews, setPlacementBeforeNews] = useState(150);
     const [placementAfterNews, setPlacementAfterNews] = useState(130);
     const [placementTraffic, setPlacementTraffic] = useState(120);
     const [frequency3x, setFrequency3x] = useState(150);
     const [frequency6x, setFrequency6x] = useState(250);
     const [showSummary, setShowSummary] = useState(false);
+
+    const totalCost = spotLengthSeconds * costPerSecond;
 
     const onAdvertisementSubmit = (e) => {
         e.preventDefault();
@@ -33,10 +38,14 @@ export default function Advertisement() {
 
                     <label>Telefon:</label><br />
                     <input type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} required /><br />
+                    <h3>Spoterstellung</h3>
+                    <label>Spotlänge in Sekunden:</label><br />
+                    <input type="number" value={spotLengthSeconds} onChange={(e) => setSpotLengthSeconds(parseFloat(e.target.value))} /><br />
 
                     <label>Kosten pro Sekunde:</label><br />
                     <input type="number" value={costPerSecond} onChange={(e) => setCostPerSecond(parseFloat(e.target.value))} /><br />
 
+                    <h3>Sendeplatz</h3>
                     <label>Sendeplatz vor den Nachrichten:</label><br />
                     <input type="number" value={placementBeforeNews} onChange={(e) => setPlacementBeforeNews(parseFloat(e.target.value))} /><br />
 
@@ -62,12 +71,15 @@ export default function Advertisement() {
                     <p><strong>Name:</strong> {name}</p>
                     <p><strong>Email:</strong> {email}</p>
                     <p><strong>Telefon:</strong> {telephone}</p>
+                    <p><strong>Spotlänge in Sekunden:</strong> {spotLengthSeconds} Sekunden</p>
                     <p><strong>Kosten pro Sekunde:</strong> {costPerSecond} €</p>
                     <p><strong>Sendeplatz vor den Nachrichten:</strong> {placementBeforeNews} €</p>
                     <p><strong>Sendeplatz nach den Nachrichten:</strong> {placementAfterNews} €</p>
                     <p><strong>Sendeplatz Verkehr:</strong> {placementTraffic} €</p>
                     <p><strong>Häufigkeit 3 x täglich:</strong> {frequency3x} €</p>
                     <p><strong>Häufigkeit 6 x täglich:</strong> {frequency6x} €</p>
+
+                    <p><strong>Gesamtkosten:</strong> {totalCost} €</p>
                 </div>
             )}
         </div>
