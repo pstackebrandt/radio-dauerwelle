@@ -25,7 +25,7 @@ import Error from "../pages/errors/Error";
 import Employees from "../pages/Employees";
 import NotFound from "../pages/NotFound";
 import Playlist from "../pages/playlist";
-import Advertisement from "../pages/advertisment";
+import Advertisement from "../pages/advertisement";
 
 /*
 * Portierung:
