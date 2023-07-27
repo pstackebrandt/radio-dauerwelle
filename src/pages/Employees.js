@@ -71,11 +71,12 @@ export default function Employees() {
       <h2>Unsere Mitarbeiter</h2>
 
       <h3>Moderatoren</h3>
-      {radioHosts.map(currentEmployee => ShowEmployee(currentEmployee))}
+      {radioHosts.map(currentEmployee => <ShowEmployee key={currentEmployee.id} {...currentEmployee} />)}
 
       <h3>Regie</h3>
-      {managenment.map(currentEmployee => ShowEmployee(currentEmployee))}
+      {managenment.map(currentEmployee => <ShowEmployee key={currentEmployee.id} {...currentEmployee} />)}
 
     </div>
   );
+
 }
