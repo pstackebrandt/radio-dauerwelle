@@ -56,6 +56,7 @@ export default function Advertisement() {
         if (hadToCalculatePriceOnce) {
             setTotalCost(calculateTotalCost());
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [spotLengthSeconds, placementBeforeNews, placementAfterNews, placementTraffic, hadToCalculatePriceOnce, frequency]);
 
 
