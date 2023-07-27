@@ -1,8 +1,12 @@
-// file advertisement.js
+// file name: advertisement.js
 
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
+// Define constants for placement costs
+const COST_BEFORE_NEWS = 150;
+const COST_AFTER_NEWS = 130;
+const COST_TRAFFIC = 120;
 
 export default function Advertisement() {
     const [name, setName] = useState("Ihr name");
@@ -11,18 +15,33 @@ export default function Advertisement() {
 
     const [spotLengthSeconds, setSpotLengthSeconds] = useState(10);
     const [costPerSecond, setCostPerSecond] = useState(25);
-    const [placementBeforeNews, setPlacementBeforeNews] = useState(150);
-    const [placementAfterNews, setPlacementAfterNews] = useState(130);
-    const [placementTraffic, setPlacementTraffic] = useState(120);
-    const [frequency, setFrequency] = useState(3);  // Der Defaultwert ist 6x täglich
+    
+    const [placementBeforeNews, setPlacementBeforeNews] = useState(false);
+    const [placementAfterNews, setPlacementAfterNews] = useState(false);
+    const [placementTraffic, setPlacementTraffic] = useState(false);
+    const [frequency, setFrequency] = useState(3);
     const [showSummary, setShowSummary] = useState(false);
     const [totalCost, setTotalCost] = useState(0);
 
     const calculateTotalCost = () => {
         let totalCost = 0;
-        totalCost += spotLengthSeconds * costPerSecond;
+        const baseTaxPrice = spotLengthSeconds * costPerSecond;
 
-        return totalCost;
+        var spotTaxPrice = 0;
+
+        if (placementBeforeNews) {
+            spotTaxPrice += COST_BEFORE_NEWS;
+        }
+
+        if (placementAfterNews) {
+            spotTaxPrice += COST_AFTER_NEWS;
+        }
+
+        if (placementTraffic) {
+            spotTaxPrice += COST_TRAFFIC;
+        }
+        
+        return totalCost = baseTaxPrice + spotTaxPrice;
     }
 
     const onAdvertisementSubmit = (e) => {
@@ -35,7 +54,7 @@ export default function Advertisement() {
     };
 
     return (
-<Container className="mt-4">
+        <Container className="mt-4">
             <Row>
                 <Col md={{ span: 6, offset: 3 }}>
                     <h2>Berechnen Sie sich Ihre Werbekosten</h2>
@@ -67,23 +86,35 @@ export default function Advertisement() {
                             <Form.Label>Kosten pro Sekunde:</Form.Label>
                             <Form.Control type="number" value={costPerSecond} onChange={(e) => setCostPerSecond(parseFloat(e.target.value))} />
                         </Form.Group>
-
+                        
                         <h3>Sendeplatz</h3>
                         <Form.Group controlId="formPlacementBeforeNews">
-                            <Form.Label>Sendeplatz vor den Nachrichten:</Form.Label>
-                            <Form.Control type="number" value={placementBeforeNews} onChange={(e) => setPlacementBeforeNews(parseFloat(e.target.value))} />
+                            <Form.Check 
+                                type="checkbox" 
+                                label={`Vor den Nachrichten: ${COST_BEFORE_NEWS} €`}
+                                checked={placementBeforeNews} 
+                                onChange={(e) => setPlacementBeforeNews(e.target.checked)} 
+                            />
                         </Form.Group>
 
                         <Form.Group controlId="formPlacementAfterNews">
-                            <Form.Label>Sendeplatz nach den Nachrichten:</Form.Label>
-                            <Form.Control type="number" value={placementAfterNews} onChange={(e) => setPlacementAfterNews(parseFloat(e.target.value))} />
+                            <Form.Check 
+                                type="checkbox" 
+                                label={`Nach den Nachrichten: ${COST_AFTER_NEWS} €`} 
+                                checked={placementAfterNews} 
+                                onChange={(e) => setPlacementAfterNews(e.target.checked)} 
+                            />
                         </Form.Group>
 
                         <Form.Group controlId="formPlacementTraffic">
-                            <Form.Label>Sendeplatz Verkehr:</Form.Label>
-                            <Form.Control type="number" value={placementTraffic} onChange={(e) => setPlacementTraffic(parseFloat(e.target.value))} />
+                            <Form.Check 
+                                type="checkbox" 
+                                label={`Verkehr: ${COST_TRAFFIC} €`} 
+                                checked={placementTraffic} 
+                                onChange={(e) => setPlacementTraffic(e.target.checked)} 
+                            />
                         </Form.Group>
-
+                        
                         <p><strong>Häufigkeit:</strong></p>
                         <Form.Check 
                             inline
