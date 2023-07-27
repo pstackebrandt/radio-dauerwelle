@@ -10,7 +10,7 @@ function TopNav() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link as={NavLink} exact to="/" activeClassName="active">Willkommen</Nav.Link>
+                    <Nav.Link as={NavLink} end to="/" activeClassName="active">Willkommen</Nav.Link>
                     <Nav.Link as={NavLink} to="/playlist" activeClassName="active">Playlist</Nav.Link>
                     <Nav.Link as={NavLink} to="/advertisement" activeClassName="active">Werbung buchen</Nav.Link>
                     <Nav.Link as={NavLink} to="/employees" activeClassName="active">Mitarbeiter</Nav.Link>
