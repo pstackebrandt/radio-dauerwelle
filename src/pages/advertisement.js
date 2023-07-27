@@ -1,6 +1,6 @@
 // file name: advertisement.js
 
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
 // Define constants for placement costs
@@ -15,7 +15,6 @@ export default function Advertisement() {
     const [telephone, setTelephone] = useState("0123456789");
 
     const [spotLengthSeconds, setSpotLengthSeconds] = useState(10);
-    const [costPerSecond, setCostPerSecond] = useState(25);
 
     const [placementBeforeNews, setPlacementBeforeNews] = useState(false);
     const [placementAfterNews, setPlacementAfterNews] = useState(false);
@@ -24,9 +23,12 @@ export default function Advertisement() {
     const [showSummary, setShowSummary] = useState(false);
     const [totalCost, setTotalCost] = useState(0);
 
+    // User has ordered calculation of price at least once
+    const [hadToCalculatePriceOnce, setHadToCalculatePriceOnce] = useState(false);
+
     const calculateTotalCost = () => {
         let totalCost = 0;
-        const baseTaxPrice = spotLengthSeconds * costPerSecond;
+        const baseTaxPrice = spotLengthSeconds * COST_PER_SECOND;
 
         var spotTaxPrice = 0;
 
@@ -42,14 +44,26 @@ export default function Advertisement() {
             spotTaxPrice += COST_TRAFFIC;
         }
 
-        return totalCost = baseTaxPrice + spotTaxPrice;
+        // assuming frequency cost is linear i.e., 3 times costs 150 and 6 times costs 250
+        let frequencyCost = frequency === 3 ? 150 : 250;
+
+        totalCost = baseTaxPrice + spotTaxPrice + frequencyCost;
+        
+        return totalCost;
     }
+
+    useEffect(() => {
+        if (hadToCalculatePriceOnce) {
+            setTotalCost(calculateTotalCost());
+        }
+    }, [spotLengthSeconds, placementBeforeNews, placementAfterNews, placementTraffic, hadToCalculatePriceOnce, frequency]);
+
 
     const onAdvertisementSubmit = (e) => {
         e.preventDefault();
         // Gesamtkosten berechnen und im Zustand speichern
-        const calculatedTotalCost = calculateTotalCost();
-        setTotalCost(calculatedTotalCost);
+        setHadToCalculatePriceOnce(true);
+        setTotalCost(calculateTotalCost());
 
         setShowSummary(true);
     };
@@ -141,8 +155,7 @@ export default function Advertisement() {
                                 {name && <p><strong>Name:</strong> {name}</p>}
                                 {email && <p><strong>Email:</strong> {email}</p>}
                                 {telephone && <p><strong>Telefon:</strong> {telephone}</p>}
-                                {spotLengthSeconds && <p><strong>Spotlänge in Sekunden:</strong> {spotLengthSeconds} Sekunden</p>}
-                                {costPerSecond && <p><strong>Kosten pro Sekunde:</strong> {costPerSecond} €</p>}
+                                {spotLengthSeconds > 0 && <p><strong>Spotlänge in Sekunden:</strong> {spotLengthSeconds} Sekunden</p>}
                                 {placementBeforeNews && <p><strong>Sendeplatz vor den Nachrichten:</strong> {COST_BEFORE_NEWS} €</p>}
                                 {placementAfterNews && <p><strong>Sendeplatz nach den Nachrichten:</strong> {COST_AFTER_NEWS} €</p>}
                                 {placementTraffic && <p><strong>Sendeplatz Verkehr:</strong> {COST_TRAFFIC} €</p>}
