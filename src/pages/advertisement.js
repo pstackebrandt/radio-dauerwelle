@@ -15,7 +15,7 @@ export default function Advertisement() {
 
     const [spotLengthSeconds, setSpotLengthSeconds] = useState(10);
     const [costPerSecond, setCostPerSecond] = useState(25);
-    
+
     const [placementBeforeNews, setPlacementBeforeNews] = useState(false);
     const [placementAfterNews, setPlacementAfterNews] = useState(false);
     const [placementTraffic, setPlacementTraffic] = useState(false);
@@ -40,7 +40,7 @@ export default function Advertisement() {
         if (placementTraffic) {
             spotTaxPrice += COST_TRAFFIC;
         }
-        
+
         return totalCost = baseTaxPrice + spotTaxPrice;
     }
 
@@ -86,53 +86,53 @@ export default function Advertisement() {
                             <Form.Label>Kosten pro Sekunde:</Form.Label>
                             <Form.Control type="number" value={costPerSecond} onChange={(e) => setCostPerSecond(parseFloat(e.target.value))} />
                         </Form.Group>
-                        
+
                         <h3>Sendeplatz</h3>
                         <Form.Group controlId="formPlacementBeforeNews">
-                            <Form.Check 
-                                type="checkbox" 
+                            <Form.Check
+                                type="checkbox"
                                 label={`Vor den Nachrichten: ${COST_BEFORE_NEWS} €`}
-                                checked={placementBeforeNews} 
-                                onChange={(e) => setPlacementBeforeNews(e.target.checked)} 
+                                checked={placementBeforeNews}
+                                onChange={(e) => setPlacementBeforeNews(e.target.checked)}
                             />
                         </Form.Group>
 
                         <Form.Group controlId="formPlacementAfterNews">
-                            <Form.Check 
-                                type="checkbox" 
-                                label={`Nach den Nachrichten: ${COST_AFTER_NEWS} €`} 
-                                checked={placementAfterNews} 
-                                onChange={(e) => setPlacementAfterNews(e.target.checked)} 
+                            <Form.Check
+                                type="checkbox"
+                                label={`Nach den Nachrichten: ${COST_AFTER_NEWS} €`}
+                                checked={placementAfterNews}
+                                onChange={(e) => setPlacementAfterNews(e.target.checked)}
                             />
                         </Form.Group>
 
                         <Form.Group controlId="formPlacementTraffic">
-                            <Form.Check 
-                                type="checkbox" 
-                                label={`Verkehr: ${COST_TRAFFIC} €`} 
-                                checked={placementTraffic} 
-                                onChange={(e) => setPlacementTraffic(e.target.checked)} 
+                            <Form.Check
+                                type="checkbox"
+                                label={`Verkehr: ${COST_TRAFFIC} €`}
+                                checked={placementTraffic}
+                                onChange={(e) => setPlacementTraffic(e.target.checked)}
                             />
                         </Form.Group>
-                        
+
                         <p><strong>Häufigkeit:</strong></p>
-                        <Form.Check 
+                        <Form.Check
                             inline
-                            type="radio" 
-                            label="3 x täglich (150 €)" 
-                            value={3} 
+                            type="radio"
+                            label="3 x täglich (150 €)"
+                            value={3}
                             checked={frequency === 3}
-                            onChange={(e) => setFrequency(parseInt(e.target.value))} 
+                            onChange={(e) => setFrequency(parseInt(e.target.value))}
                         />
-                        <Form.Check 
+                        <Form.Check
                             inline
-                            type="radio" 
-                            label="6 x täglich (250 €)" 
-                            value={6} 
+                            type="radio"
+                            label="6 x täglich (250 €)"
+                            value={6}
                             checked={frequency === 6}
-                            onChange={(e) => setFrequency(parseInt(e.target.value))} 
+                            onChange={(e) => setFrequency(parseInt(e.target.value))}
                         />
-                        
+
                         <Button className="mt-3" variant="primary" type="submit">Unverbindlich berechnen</Button>
                     </Form>
 
@@ -140,17 +140,16 @@ export default function Advertisement() {
                         <Card className="mt-3">
                             <Card.Body>
                                 <Card.Title>Zusammenfassung Ihrer Anfrage:</Card.Title>
-                                <p><strong>Name:</strong> {name}</p>
-                                <p><strong>Email:</strong> {email}</p>
-                                <p><strong>Telefon:</strong> {telephone}</p>
-                                <p><strong>Spotlänge in Sekunden:</strong> {spotLengthSeconds} Sekunden</p>
-                                <p><strong>Kosten pro Sekunde:</strong> {costPerSecond} €</p>
-                                <p><strong>Sendeplatz vor den Nachrichten:</strong> {placementBeforeNews} €</p>
-                                <p><strong>Sendeplatz nach den Nachrichten:</strong> {placementAfterNews} €</p>
-                                <p><strong>Sendeplatz Verkehr:</strong> {placementTraffic} €</p>
-                                <p><strong>Gewählte Häufigkeit:</strong> {frequency === '3' ? '3 x täglich' : '6 x täglich'}</p>
-
-                                <p><strong>Gesamtkosten:</strong> {totalCost} €</p>
+                                {name && <p><strong>Name:</strong> {name}</p>}
+                                {email && <p><strong>Email:</strong> {email}</p>}
+                                {telephone && <p><strong>Telefon:</strong> {telephone}</p>}
+                                {spotLengthSeconds && <p><strong>Spotlänge in Sekunden:</strong> {spotLengthSeconds} Sekunden</p>}
+                                {costPerSecond && <p><strong>Kosten pro Sekunde:</strong> {costPerSecond} €</p>}
+                                {placementBeforeNews && <p><strong>Sendeplatz vor den Nachrichten:</strong> {COST_BEFORE_NEWS} €</p>}
+                                {placementAfterNews && <p><strong>Sendeplatz nach den Nachrichten:</strong> {COST_AFTER_NEWS} €</p>}
+                                {placementTraffic && <p><strong>Sendeplatz Verkehr:</strong> {COST_TRAFFIC} €</p>}
+                                {frequency && <p><strong>Gewählte Häufigkeit:</strong> {frequency === 3 ? '3 x täglich' : '6 x täglich'}</p>}
+                                {totalCost && <p><strong>Gesamtkosten:</strong> {totalCost} €</p>}
                             </Card.Body>
                         </Card>
                     )}
