@@ -1,6 +1,6 @@
 // file name: advertisement.js
 
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
 // Define constants for placement costs
@@ -48,7 +48,7 @@ export default function Advertisement() {
         let frequencyCost = frequency === 3 ? 150 : 250;
 
         totalCost = baseTaxPrice + spotTaxPrice + frequencyCost;
-        
+
         return totalCost;
     }
 
@@ -56,7 +56,7 @@ export default function Advertisement() {
         if (hadToCalculatePriceOnce) {
             setTotalCost(calculateTotalCost());
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [spotLengthSeconds, placementBeforeNews, placementAfterNews, placementTraffic, hadToCalculatePriceOnce, frequency]);
 
 
@@ -95,7 +95,14 @@ export default function Advertisement() {
                         <h3>Spoterstellung</h3>
                         <Form.Group controlId="formSpotLength">
                             <Form.Label>Spotlänge in Sekunden:</Form.Label>
-                            <Form.Control type="number" value={spotLengthSeconds} onChange={(e) => setSpotLengthSeconds(parseFloat(e.target.value))} />
+                            <Form.Control type="number" min="0" value={spotLengthSeconds}
+                                onChange={
+                                    (e) => {
+                                        let spotLength = parseInt(e.target.value);
+                                        if (spotLength >= 0) {
+                                            setSpotLengthSeconds(spotLength)
+                                        }
+                                    }} />
                         </Form.Group>
 
                         <Form.Text className="text-muted">(Kosten pro Sekunde: {COST_PER_SECOND} €)</Form.Text>
