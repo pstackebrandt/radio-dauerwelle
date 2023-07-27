@@ -5,15 +5,14 @@ import React, { useState } from "react";
 export default function Advertisement() {
     const [name, setName] = useState("Ihr name");
     const [email, setEmail] = useState("ihre@email.adresse");
-    const [telephone, setTelephone] = useState("0123456789"); 
-    
+    const [telephone, setTelephone] = useState("0123456789");
+
     const [spotLengthSeconds, setSpotLengthSeconds] = useState(10);
     const [costPerSecond, setCostPerSecond] = useState(25);
     const [placementBeforeNews, setPlacementBeforeNews] = useState(150);
     const [placementAfterNews, setPlacementAfterNews] = useState(130);
     const [placementTraffic, setPlacementTraffic] = useState(120);
-    const [frequency3x, setFrequency3x] = useState(150);
-    const [frequency6x, setFrequency6x] = useState(250);
+    const [frequency, setFrequency] = useState(3);  // Der Defaultwert ist 6x täglich
     const [showSummary, setShowSummary] = useState(false);
     const [totalCost, setTotalCost] = useState(0);
 
@@ -65,12 +64,18 @@ export default function Advertisement() {
                     <label>Sendeplatz Verkehr:</label><br />
                     <input type="number" value={placementTraffic} onChange={(e) => setPlacementTraffic(parseFloat(e.target.value))} /><br />
 
-                    <label>Häufigkeit 3 x täglich:</label><br />
-                    <input type="number" value={frequency3x} onChange={(e) => setFrequency3x(parseFloat(e.target.value))} /><br />
-
-                    <label>Häufigkeit 6 x täglich:</label><br />
-                    <input type="number" value={frequency6x} onChange={(e) => setFrequency6x(parseFloat(e.target.value))} /><br />
-
+                    <p><strong>Häufigkeit:</strong></p>
+                    <label>
+                        <input type="radio" value={3} checked={frequency === 3}
+                         onChange={(e) => setFrequency(e.target.value)} />
+                        3 x täglich (150 €)
+                    </label>
+                    <label>
+                        <input type="radio" value={6} checked={frequency === 6}
+                         onChange={(e) => setFrequency(e.target.value)} />
+                        6 x täglich (250 €)
+                    </label>
+                    
                     <button type="submit"><strong>Unverbindlich</strong> berechnen</button>
                 </form>
             </div>
@@ -86,8 +91,7 @@ export default function Advertisement() {
                     <p><strong>Sendeplatz vor den Nachrichten:</strong> {placementBeforeNews} €</p>
                     <p><strong>Sendeplatz nach den Nachrichten:</strong> {placementAfterNews} €</p>
                     <p><strong>Sendeplatz Verkehr:</strong> {placementTraffic} €</p>
-                    <p><strong>Häufigkeit 3 x täglich:</strong> {frequency3x} €</p>
-                    <p><strong>Häufigkeit 6 x täglich:</strong> {frequency6x} €</p>
+                    <p><strong>Gewählte Häufigkeit:</strong> {frequency === '3' ? '3 x täglich' : '6 x täglich'}</p>
 
                     <p><strong>Gesamtkosten:</strong> {totalCost} €</p>
                 </div>
