@@ -23,19 +23,8 @@ export default function RootLayout() {
         return (
             <header>
                 <TopNav />
-
                 <PageTitle />
-
                 <EyeCatcherWithData />
-
-                {/* todo check whether to use eye-catcher component */}
-                <div className="current-eye-catcher">
-                    <img src={logo} alt="Aktuelles Bild" />
-
-                    <h2>Samy Deluxe im Anmarsch</h2>
-                    <p>Samy Delux hat eine neue Single veröffentlicht. Simon Desu produzierte die Beats...<a href=" / ">weiterlesen</a></p>
-                </div>
-
             </header>
         );
     }
