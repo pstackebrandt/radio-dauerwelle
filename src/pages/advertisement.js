@@ -1,7 +1,9 @@
 // file name: advertisement.js
 
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card, Alert } from "react-bootstrap";
+
+import "../styles/advertisement.css";
 
 // Define constants for placement costs
 const COST_BEFORE_NEWS = 150;
@@ -71,42 +73,41 @@ export default function Advertisement() {
     };
 
     return (
-        <Container className="mt-4">
+        <Container className="mt-4, mb-4">
             <Row>
                 <Col md={{ span: 6, offset: 3 }}>
-                    <h2>Berechnen Sie sich Ihre Werbekosten</h2>
-                    <p>Es ist gar nicht so teuer wie Sie annehmen.</p>
+                    <h2 className="mb-3 text-primary">Berechnen Sie sich Ihre Werbekosten</h2>
+                    <div className="mb-4 fw-bold">Es ist gar nicht so teuer wie Sie annehmen.</div>
 
                     <Form onSubmit={onAdvertisementSubmit}>
-                        <Form.Group controlId="formName">
+                        <Form.Group className="mb-3" controlId="formName">
                             <Form.Label>Name:</Form.Label>
                             <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} required />
                         </Form.Group>
 
-                        <Form.Group controlId="formEmail">
+                        <Form.Group className="mb-3" controlId="formEmail">
                             <Form.Label>Email:</Form.Label>
                             <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                         </Form.Group>
 
-                        <Form.Group controlId="formTelephone">
+                        <Form.Group className="mb-3" controlId="formTelephone">
                             <Form.Label>Telefon:</Form.Label>
                             <Form.Control type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} required />
                         </Form.Group>
 
-                        <h3>Spoterstellung</h3>
-                        <Form.Group controlId="formSpotLength">
+                        <Form.Group className="mb-3" controlId="formSpotLength">
+                        <div className="mb-1"  fw-bold>Spoterstellung</div>
                             <Form.Label>Spotlänge in Sekunden: {spotLengthSeconds} (mindestens {MIN_SPOT_LENGTH})</Form.Label>
                             <Form.Control type="range" min={MIN_SPOT_LENGTH} max="90" value={spotLengthSeconds}
                                 onChange={
                                     (e) => {
                                         setSpotLengthSeconds(parseInt(e.target.value))
                                     }} />
+                            <Form.Text className="text-muted">(Kosten pro Sekunde: {COST_PER_SECOND} €)</Form.Text>
                         </Form.Group>
 
-                        <Form.Text className="text-muted">(Kosten pro Sekunde: {COST_PER_SECOND} €)</Form.Text>
-
-                        <h3>Sendeplatz</h3>
-                        <Form.Group controlId="formPlacementBeforeNews">
+                        <Form.Group className="mb-3" controlId="formPlacementBeforeNews">
+                            <div className="mb-1"><strong>Sendeplatz</strong></div>
                             <Form.Check
                                 type="checkbox"
                                 label={`Vor den Nachrichten: ${COST_BEFORE_NEWS} €`}
@@ -115,7 +116,7 @@ export default function Advertisement() {
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="formPlacementAfterNews">
+                        <Form.Group className="mb-3" controlId="formPlacementAfterNews">
                             <Form.Check
                                 type="checkbox"
                                 label={`Nach den Nachrichten: ${COST_AFTER_NEWS} €`}
@@ -124,7 +125,7 @@ export default function Advertisement() {
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="formPlacementTraffic">
+                        <Form.Group className="mb-3" controlId="formPlacementTraffic">
                             <Form.Check
                                 type="checkbox"
                                 label={`Verkehr: ${COST_TRAFFIC} €`}
@@ -133,7 +134,9 @@ export default function Advertisement() {
                             />
                         </Form.Group>
 
-                        <p><strong>Häufigkeit:</strong></p>
+                        <Form.Group className="mb-3" controlId="formFrequency">
+                        <div className="mb-1"><strong>Häufigkeit:</strong></div>
+
                         <Form.Check
                             inline
                             type="radio"
@@ -150,6 +153,7 @@ export default function Advertisement() {
                             checked={frequency === 6}
                             onChange={(e) => setFrequency(parseInt(e.target.value))}
                         />
+</Form.Group>
 
                         <Button className="mt-3" variant="primary" type="submit">Unverbindlich berechnen</Button>
                     </Form>
@@ -166,7 +170,9 @@ export default function Advertisement() {
                                 {placementAfterNews && <p><strong>Sendeplatz nach den Nachrichten:</strong> {COST_AFTER_NEWS} €</p>}
                                 {placementTraffic && <p><strong>Sendeplatz Verkehr:</strong> {COST_TRAFFIC} €</p>}
                                 {frequency && <p><strong>Gewählte Häufigkeit:</strong> {frequency === 3 ? '3 x täglich' : '6 x täglich'}</p>}
-                                {totalCost && <p><strong>Gesamtkosten:</strong> {totalCost} €</p>}
+                                {totalCost && <Alert variant="primary" className="mt-3">
+                                    <strong>Gesamtkosten:</strong> {totalCost} €
+                                </Alert>}
                             </Card.Body>
                         </Card>
                     )}
