@@ -7,6 +7,7 @@ import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 const COST_BEFORE_NEWS = 150;
 const COST_AFTER_NEWS = 130;
 const COST_TRAFFIC = 120;
+const COST_PER_SECOND = 25;
 
 export default function Advertisement() {
     const [name, setName] = useState("Ihr name");
@@ -82,10 +83,7 @@ export default function Advertisement() {
                             <Form.Control type="number" value={spotLengthSeconds} onChange={(e) => setSpotLengthSeconds(parseFloat(e.target.value))} />
                         </Form.Group>
 
-                        <Form.Group controlId="formCostPerSecond">
-                            <Form.Label>Kosten pro Sekunde:</Form.Label>
-                            <Form.Control type="number" value={costPerSecond} onChange={(e) => setCostPerSecond(parseFloat(e.target.value))} />
-                        </Form.Group>
+                        <Form.Text className="text-muted">(Kosten pro Sekunde: {COST_PER_SECOND} €)</Form.Text>
 
                         <h3>Sendeplatz</h3>
                         <Form.Group controlId="formPlacementBeforeNews">
