@@ -8,6 +8,7 @@ const COST_BEFORE_NEWS = 150;
 const COST_AFTER_NEWS = 130;
 const COST_TRAFFIC = 120;
 const COST_PER_SECOND = 25;
+const MIN_SPOT_LENGTH = 2;
 
 export default function Advertisement() {
     const [name, setName] = useState("Ihr name");
@@ -94,14 +95,11 @@ export default function Advertisement() {
 
                         <h3>Spoterstellung</h3>
                         <Form.Group controlId="formSpotLength">
-                            <Form.Label>Spotlänge in Sekunden:</Form.Label>
-                            <Form.Control type="number" min="0" value={spotLengthSeconds}
+                            <Form.Label>Spotlänge in Sekunden: {spotLengthSeconds} (mindestens {MIN_SPOT_LENGTH})</Form.Label>
+                            <Form.Control type="range" min={MIN_SPOT_LENGTH} max="90" value={spotLengthSeconds}
                                 onChange={
                                     (e) => {
-                                        let spotLength = parseInt(e.target.value);
-                                        if (spotLength >= 0) {
-                                            setSpotLengthSeconds(spotLength)
-                                        }
+                                        setSpotLengthSeconds(parseInt(e.target.value))
                                     }} />
                         </Form.Group>
 
