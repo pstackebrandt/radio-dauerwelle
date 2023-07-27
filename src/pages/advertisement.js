@@ -91,7 +91,7 @@ export default function Advertisement() {
                             label="3 x täglich (150 €)" 
                             value={3} 
                             checked={frequency === 3}
-                            onChange={(e) => setFrequency(e.target.value)} 
+                            onChange={(e) => setFrequency(parseInt(e.target.value))} 
                         />
                         <Form.Check 
                             inline
@@ -99,7 +99,7 @@ export default function Advertisement() {
                             label="6 x täglich (250 €)" 
                             value={6} 
                             checked={frequency === 6}
-                            onChange={(e) => setFrequency(e.target.value)} 
+                            onChange={(e) => setFrequency(parseInt(e.target.value))} 
                         />
                         
                         <Button className="mt-3" variant="primary" type="submit">Unverbindlich berechnen</Button>
