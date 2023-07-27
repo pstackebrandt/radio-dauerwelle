@@ -2,9 +2,9 @@
 
 //ReactRouter Imports
 import { NavLink, Outlet } from 'react-router-dom'
+import { Nav } from 'react-bootstrap';
 import TopNav from '../pages/top-nav';
 import PageTitle from '../pages/page-title';
-import EyeCatcher from '../pages/eye-catcher';
 import logo from '../images/logo.svg';
 
 import EyeCatcherWithData from '../data/eye-catcher-with-data';
@@ -19,7 +19,7 @@ import EyeCatcherWithData from '../data/eye-catcher-with-data';
 export default function RootLayout() {
 
     function Header() {
-        
+
         return (
             <header>
                 <TopNav />
@@ -27,7 +27,7 @@ export default function RootLayout() {
                 <PageTitle />
 
                 <EyeCatcherWithData />
-                
+
                 {/* todo check whether to use eye-catcher component */}
                 <div className="current-eye-catcher">
                     <img src={logo} alt="Aktuelles Bild" />
@@ -51,15 +51,14 @@ export default function RootLayout() {
 
     function Footer() {
         return (
-
             <footer>
-                <description>Footer von RH</description>
-                <nav>
+                <p>Footer von RH</p>
+                <Nav>
                     {/* todo use component bottom-nav */}
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/">Impressum</NavLink>
-                    <NavLink to="/">Datenschutz</NavLink>
-                </nav>
+                    <NavLink to="/" as={Nav.Link}>Home</NavLink>
+                    <NavLink to="/impressum" as={Nav.Link}>Impressum</NavLink>
+                    <NavLink to="/datenschutz" as={Nav.Link}>Datenschutz</NavLink>
+                </Nav>
             </footer>
         );
     }
