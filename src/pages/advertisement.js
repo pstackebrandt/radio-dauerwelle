@@ -1,6 +1,8 @@
 // file advertisement.js
 
 import React, { useState } from "react";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+
 
 export default function Advertisement() {
     const [name, setName] = useState("Ihr name");
@@ -33,69 +35,96 @@ export default function Advertisement() {
     };
 
     return (
-        <div className="advertisement-wrapper">
-            <h2>Berechnen Sie sich Ihre Werbekosten</h2>
-            <p>Es ist gar nicht so teuer wie Sie annehmen.</p>
+<Container className="mt-4">
+            <Row>
+                <Col md={{ span: 6, offset: 3 }}>
+                    <h2>Berechnen Sie sich Ihre Werbekosten</h2>
+                    <p>Es ist gar nicht so teuer wie Sie annehmen.</p>
 
-            <div className="advertisement-form">
-                <form onSubmit={onAdvertisementSubmit}>
-                    <label>Name:</label><br />
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required /><br />
+                    <Form onSubmit={onAdvertisementSubmit}>
+                        <Form.Group controlId="formName">
+                            <Form.Label>Name:</Form.Label>
+                            <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                        </Form.Group>
 
-                    <label>Email:</label><br />
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /><br />
+                        <Form.Group controlId="formEmail">
+                            <Form.Label>Email:</Form.Label>
+                            <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        </Form.Group>
 
-                    <label>Telefon:</label><br />
-                    <input type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} required /><br />
-                    <h3>Spoterstellung</h3>
-                    <label>Spotlänge in Sekunden:</label><br />
-                    <input type="number" value={spotLengthSeconds} onChange={(e) => setSpotLengthSeconds(parseFloat(e.target.value))} /><br />
+                        <Form.Group controlId="formTelephone">
+                            <Form.Label>Telefon:</Form.Label>
+                            <Form.Control type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} required />
+                        </Form.Group>
 
-                    <label>Kosten pro Sekunde:</label><br />
-                    <input type="number" value={costPerSecond} onChange={(e) => setCostPerSecond(parseFloat(e.target.value))} /><br />
+                        <h3>Spoterstellung</h3>
+                        <Form.Group controlId="formSpotLength">
+                            <Form.Label>Spotlänge in Sekunden:</Form.Label>
+                            <Form.Control type="number" value={spotLengthSeconds} onChange={(e) => setSpotLengthSeconds(parseFloat(e.target.value))} />
+                        </Form.Group>
 
-                    <h3>Sendeplatz</h3>
-                    <label>Sendeplatz vor den Nachrichten:</label><br />
-                    <input type="number" value={placementBeforeNews} onChange={(e) => setPlacementBeforeNews(parseFloat(e.target.value))} /><br />
+                        <Form.Group controlId="formCostPerSecond">
+                            <Form.Label>Kosten pro Sekunde:</Form.Label>
+                            <Form.Control type="number" value={costPerSecond} onChange={(e) => setCostPerSecond(parseFloat(e.target.value))} />
+                        </Form.Group>
 
-                    <label>Sendeplatz nach den Nachrichten:</label><br />
-                    <input type="number" value={placementAfterNews} onChange={(e) => setPlacementAfterNews(parseFloat(e.target.value))} /><br />
+                        <h3>Sendeplatz</h3>
+                        <Form.Group controlId="formPlacementBeforeNews">
+                            <Form.Label>Sendeplatz vor den Nachrichten:</Form.Label>
+                            <Form.Control type="number" value={placementBeforeNews} onChange={(e) => setPlacementBeforeNews(parseFloat(e.target.value))} />
+                        </Form.Group>
 
-                    <label>Sendeplatz Verkehr:</label><br />
-                    <input type="number" value={placementTraffic} onChange={(e) => setPlacementTraffic(parseFloat(e.target.value))} /><br />
+                        <Form.Group controlId="formPlacementAfterNews">
+                            <Form.Label>Sendeplatz nach den Nachrichten:</Form.Label>
+                            <Form.Control type="number" value={placementAfterNews} onChange={(e) => setPlacementAfterNews(parseFloat(e.target.value))} />
+                        </Form.Group>
 
-                    <p><strong>Häufigkeit:</strong></p>
-                    <label>
-                        <input type="radio" value={3} checked={frequency === 3}
-                         onChange={(e) => setFrequency(e.target.value)} />
-                        3 x täglich (150 €)
-                    </label>
-                    <label>
-                        <input type="radio" value={6} checked={frequency === 6}
-                         onChange={(e) => setFrequency(e.target.value)} />
-                        6 x täglich (250 €)
-                    </label>
-                    
-                    <button type="submit"><strong>Unverbindlich</strong> berechnen</button>
-                </form>
-            </div>
+                        <Form.Group controlId="formPlacementTraffic">
+                            <Form.Label>Sendeplatz Verkehr:</Form.Label>
+                            <Form.Control type="number" value={placementTraffic} onChange={(e) => setPlacementTraffic(parseFloat(e.target.value))} />
+                        </Form.Group>
 
-            {showSummary && (
-                <div className="summary">
-                    <h3>Zusammenfassung Ihrer Anfrage:</h3>
-                    <p><strong>Name:</strong> {name}</p>
-                    <p><strong>Email:</strong> {email}</p>
-                    <p><strong>Telefon:</strong> {telephone}</p>
-                    <p><strong>Spotlänge in Sekunden:</strong> {spotLengthSeconds} Sekunden</p>
-                    <p><strong>Kosten pro Sekunde:</strong> {costPerSecond} €</p>
-                    <p><strong>Sendeplatz vor den Nachrichten:</strong> {placementBeforeNews} €</p>
-                    <p><strong>Sendeplatz nach den Nachrichten:</strong> {placementAfterNews} €</p>
-                    <p><strong>Sendeplatz Verkehr:</strong> {placementTraffic} €</p>
-                    <p><strong>Gewählte Häufigkeit:</strong> {frequency === '3' ? '3 x täglich' : '6 x täglich'}</p>
+                        <p><strong>Häufigkeit:</strong></p>
+                        <Form.Check 
+                            inline
+                            type="radio" 
+                            label="3 x täglich (150 €)" 
+                            value={3} 
+                            checked={frequency === 3}
+                            onChange={(e) => setFrequency(e.target.value)} 
+                        />
+                        <Form.Check 
+                            inline
+                            type="radio" 
+                            label="6 x täglich (250 €)" 
+                            value={6} 
+                            checked={frequency === 6}
+                            onChange={(e) => setFrequency(e.target.value)} 
+                        />
+                        
+                        <Button className="mt-3" variant="primary" type="submit">Unverbindlich berechnen</Button>
+                    </Form>
 
-                    <p><strong>Gesamtkosten:</strong> {totalCost} €</p>
-                </div>
-            )}
-        </div>
+                    {showSummary && (
+                        <Card className="mt-3">
+                            <Card.Body>
+                                <Card.Title>Zusammenfassung Ihrer Anfrage:</Card.Title>
+                                <p><strong>Name:</strong> {name}</p>
+                                <p><strong>Email:</strong> {email}</p>
+                                <p><strong>Telefon:</strong> {telephone}</p>
+                                <p><strong>Spotlänge in Sekunden:</strong> {spotLengthSeconds} Sekunden</p>
+                                <p><strong>Kosten pro Sekunde:</strong> {costPerSecond} €</p>
+                                <p><strong>Sendeplatz vor den Nachrichten:</strong> {placementBeforeNews} €</p>
+                                <p><strong>Sendeplatz nach den Nachrichten:</strong> {placementAfterNews} €</p>
+                                <p><strong>Sendeplatz Verkehr:</strong> {placementTraffic} €</p>
+                                <p><strong>Gewählte Häufigkeit:</strong> {frequency === '3' ? '3 x täglich' : '6 x täglich'}</p>
+
+                                <p><strong>Gesamtkosten:</strong> {totalCost} €</p>
+                            </Card.Body>
+                        </Card>
+                    )}
+                </Col>
+            </Row>
+        </Container>
     );
 }
