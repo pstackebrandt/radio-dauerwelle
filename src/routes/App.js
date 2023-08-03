@@ -1,4 +1,6 @@
-//ReactRouter Imports
+// file name: App.js
+
+// Importiere Routing-Funktionen und Komponenten aus der react-router-dom Bibliothek
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -10,19 +12,23 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../styles/app.css';
 
-import EyeCatcher from '../pages/eye-catcher';
-
 //Layouts
 import RootLayout from "../layouts/RootLayout";
 import PlaylistLayout from "../layouts/PlaylistLayout";
 
-//Pages
+// Importiere die Seitenkomponenten
 import Welcome from "../pages/Welcome";
-import Error from "../pages/errors/Error";
 import Employees from "../pages/Employees";
-import NotFound from "../pages/NotFound";
 import Playlist from "../pages/playlist";
 import Advertisement from "../pages/advertisement";
+import EyeCatcher from '../pages/eye-catcher';
+
+import Error from "../pages/errors/Error";
+import NotFound from "../pages/NotFound";
+
+// Importiere eine Funktion, um Mitarbeiterdaten abzurufen
+import { getEmployees } from '../logic/RestHandler';
+
 
 /*
 * Portierung:
@@ -37,7 +43,8 @@ const router = createBrowserRouter(
       
       {/* Start temporarily with Employees page */}
       {/* <Route index element={<Welcome />} /> */}
-      <Route index element={<Employees />} />
+      <Route index element={<Employees />} loader={getEmployees} />
+      {/* <Route index element={<Employees />} /> */}
 
       <Route path="welcome" element={<Welcome />} />
 
