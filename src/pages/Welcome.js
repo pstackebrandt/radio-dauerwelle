@@ -1,7 +1,6 @@
 // file name: Welcome.js
 
 import { useLoaderData } from "react-router-dom";
-
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import React from "react"
 import logo from '../images/logo.svg';
@@ -17,20 +16,22 @@ export default function Welcome() {
 
     function ShowPost(currentPost) {
         return (
-            <div key={currentPost.news_id} className="news-post">
-                <h3>{currentPost.news_headline}</h3>
-                <p>{currentPost.news_content}</p>
-            </div>
+            <Col md={6} sm={12} key={currentPost.news_id}>
+                <Card className='mb-3'>
+                    <Card.Body>
+                        <Card.Title>{currentPost.news_headline}</Card.Title>
+                        <Card.Text>{currentPost.news_content}</Card.Text>
+                    </Card.Body>
+                </Card>
+            </Col>
         );
     }
 
     function ShowNews() {
         return (
-            <>
-                <div className="current-news">
-                    {news.map(currentPost => ShowPost(currentPost))}
-                </div>
-            </>
+            <Row className="current-news">
+                {news.map(currentPost => ShowPost(currentPost))}
+            </Row>
         );
     }
 
@@ -40,27 +41,27 @@ export default function Welcome() {
                 <h2>HipDipDauerwelle News</h2>
                 <ShowNews />
             </div>
-
         );
     }
 
     function BookCommercials() {
         return (
-            <div className="book-commercials">
-                <h2>Bei uns Werben</h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                <div className="book-commercials-img">
-                    <img src={logo} alt="Werbebild" />
-                </div>
-            </div>
+            <Card className="book-commercials">
+                <Card.Body>
+                    <Card.Title>Bei uns Werben</Card.Title>
+                    <Card.Text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</Card.Text>
+                    <div className="book-commercials-img">
+                        <img src={logo} alt="Werbebild" className="img-fluid" />
+                    </div>
+                </Card.Body>
+            </Card>
         );
     }
 
     return (
-        <div className="welcome">
+        <Container className="welcome text-center">
             <NewsSection />
             <BookCommercials />
-        </div>
+        </Container>
     );
 }
