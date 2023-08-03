@@ -21,7 +21,7 @@ export default function EyeCatcherWithData() {
                   id: 1,
                   imgSource: "/images/pexels-anete-lusina-5239964.jpg",
                   header: "2Pac - Lebt",
-                  teaser: "Immer wieder gibt es Gerüchte das 2 Pac noch lebt. Neuste Sichtung in Texas...",
+                  teaser: "Immer wieder gibt es Gerüchte, dass 2 Pac noch lebt. Neuste Sichtung in Texas...",
                   photoCredit: "Anete Lusina"
                 },
                 {
@@ -33,7 +33,7 @@ export default function EyeCatcherWithData() {
                 },
             ];
 
-            //setzen Sie den initialen Daten
+            // initialen Daten setzen
             setEyeCatchers(initialData);
 
             // hier würden Sie Ihren Service oder Server aufrufen, um die Daten zu aktualisieren
