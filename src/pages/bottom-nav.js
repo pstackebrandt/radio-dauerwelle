@@ -10,9 +10,6 @@ function BottomNav() {
       <Nav.Item>
         <Nav.Link href="show impress">Impressum</Nav.Link>
       </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="show privacy protection">Datenschutz</Nav.Link>
-      </Nav.Item>
     </Nav>
   );
 }
