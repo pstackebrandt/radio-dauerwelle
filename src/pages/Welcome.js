@@ -15,7 +15,6 @@ export default function Welcome() {
     // Lade Daten vom Service
     const news = useLoaderData();
 
-
     function ShowPost(currentPost) {
         return (
             <div key={currentPost.news_id} className="news-post">
