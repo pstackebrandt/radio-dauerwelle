@@ -1,0 +1,12 @@
+/* Employees.css */
+
+.card {
+    font-size: 1.2rem; /* Schriftgröße erhöhen */
+    max-width: 800px; /* Maximale Breite für die Cards festlegen */
+    margin: 0 auto; /* Die Cards horizontal zentrieren */
+  }
+  
+  .card-title {
+    font-size: 1.4rem; /* Schriftgröße für die Titel erhöhen */
+  }
+  

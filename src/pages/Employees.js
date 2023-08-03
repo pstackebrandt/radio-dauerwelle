@@ -3,6 +3,7 @@
 import { useLoaderData } from "react-router-dom";
 
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import '../styles/employees.css';
 
 import React from "react"
 import logo from '../images/logo.svg';
@@ -37,7 +38,7 @@ export default function Employees() {
 
   return (
     <Container className='text-center mt-5'>
-      <h2>Unsere Mitarbeiter</h2>
+      <h2 className="mb-3 text-primary">Unsere Mitarbeiter</h2>
       {employees.map(ShowEmployee)}
     </Container>
   );
