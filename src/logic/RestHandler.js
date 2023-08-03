@@ -13,34 +13,4 @@ export const getEmployees = async () => {
     return data;
 }
 
-// Funktion, um einen neuen Mitarbeiter zu erstellen
-export const createEmployee = async (currentEmployee) => {
-    const response = await fetch(BASE_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(currentEmployee)
-    });
-    const data = await response.json();
-    return data;
-}
-
-// Funktion, um einen bestehenden Mitarbeiter zu aktualisieren
-export const updateEmployee = async (currentEmployee) => {
-    const response = await fetch(BASE_URL, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(currentEmployee)
-    });
-    const data = await response.json();
-    return data;
-}
-
-// Funktion, um einen Mitarbeiter zu löschen
-export const deleteEmployee = async (employee_id) => {
-    const response = await fetch(`${BASE_URL}${employee_id}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
-    });
-    const data = await response.json();
-    return data;
-}
+// create, update, delete function not needed for this project
