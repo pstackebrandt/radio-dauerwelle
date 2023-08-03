@@ -5,7 +5,6 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { Nav } from 'react-bootstrap';
 import TopNav from '../pages/top-nav';
 import PageTitle from '../pages/page-title';
-import logo from '../images/logo.svg';
 
 import EyeCatcherWithData from '../data/eye-catcher-with-data';
 
