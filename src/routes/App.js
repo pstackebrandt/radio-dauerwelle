@@ -56,7 +56,7 @@ const router = createBrowserRouter(
 
       <Route path="advertisement" element={<Advertisement />} />
       
-      <Route path="employees" element={<Employees />} />
+      <Route path="employees" element=<Employees /> loader={getEmployees} />
 
       <Route path="*" element={<NotFound />} />
     </Route>
