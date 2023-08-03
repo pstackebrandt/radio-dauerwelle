@@ -1,10 +1,10 @@
 // file: RootLayout.js
 
 //ReactRouter Imports
-import { NavLink, Outlet } from 'react-router-dom'
-import { Nav } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom'
 import TopNav from '../pages/top-nav';
 import PageTitle from '../pages/page-title';
+import BottomNav from '../pages/bottom-nav';
 
 import EyeCatcherWithData from '../data/eye-catcher-with-data';
 
@@ -40,13 +40,7 @@ export default function RootLayout() {
     function Footer() {
         return (
             <footer>
-                <p>Footer von RH</p>
-                <Nav>
-                    {/* todo use component bottom-nav */}
-                    <NavLink to="/" as={Nav.Link}>Home</NavLink>
-                    <NavLink to="/impressum" as={Nav.Link}>Impressum</NavLink>
-                    <NavLink to="/datenschutz" as={Nav.Link}>Datenschutz</NavLink>
-                </Nav>
+                <BottomNav />
             </footer>
         );
     }
