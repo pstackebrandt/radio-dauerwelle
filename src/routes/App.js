@@ -40,7 +40,7 @@ import { getEmployees } from '../logic/RestHandler';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />} errorElement={<Error />}>
-      
+
       {/* Start temporarily with Employees page */}
       {/* <Route index element={<Welcome />} /> */}
       <Route index element={<Employees />} loader={getEmployees} />
@@ -49,13 +49,13 @@ const router = createBrowserRouter(
       <Route path="welcome" element={<Welcome />} />
 
       <Route path="eyecatcher" element={<EyeCatcher />} />
-      
+
       <Route path="playlist" element={<PlaylistLayout />}>
         <Route index element={<Playlist />} />
       </Route>
 
       <Route path="advertisement" element={<Advertisement />} />
-      
+
       <Route path="employees" element=<Employees /> loader={getEmployees} />
 
       <Route path="*" element={<NotFound />} />
