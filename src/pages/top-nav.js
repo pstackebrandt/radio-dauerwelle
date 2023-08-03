@@ -32,7 +32,7 @@ function TopNav() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     {/* We use our CustomLink component instead of Nav.Link or NavLink */}
-                    <CustomLink to="/">Welcome</CustomLink>
+                    <CustomLink to="/welcome">Welcome</CustomLink>
                     <CustomLink to="/playlist">Playlist</CustomLink>
                     <CustomLink to="/advertisement">Book Advertisement</CustomLink>
                     <CustomLink to="/employees">Employees</CustomLink>
