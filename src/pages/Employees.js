@@ -1,9 +1,10 @@
 // file name: Employees.js
 
-import { useLoaderData, } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import React from "react"
-
 import logo from '../images/logo.svg';
 
 /**
@@ -16,29 +17,28 @@ export default function Employees() {
 
   function ShowEmployee(currentEmployee) {
     return (
-      <>
-        <div id={currentEmployee.id} className='employee'>
-          <div className='employeeInformation'>
-            <h4>{`${currentEmployee.full_name} - ${currentEmployee.department}`}</h4>
-            <p>{currentEmployee.information}</p>
-            <p><b>Job:</b> {currentEmployee.job}</p>
-          </div>
-          <div className='employeePicture'>
-            <img src={logo} alt={currentEmployee.name} />
-          </div>
-        </div>
-      </>
+      <Card key={currentEmployee.id} className='mb-3'>
+        <Row className='g-0'>
+          <Col md={4}>
+            <img src={logo} alt={currentEmployee.name} className='img-fluid' />
+          </Col>
+          <Col md={8}>
+            <Card.Body>
+              <Card.Title>{`${currentEmployee.full_name}`}</Card.Title>
+              <Card.Text><strong>Aufgabe:</strong> {currentEmployee.job}</Card.Text>
+              <Card.Text><strong>Bereich:</strong> {currentEmployee.department}</Card.Text>
+              <Card.Text><strong>Besonderes:</strong> {currentEmployee.information}</Card.Text>
+            </Card.Body>
+          </Col>
+        </Row>
+      </Card>
     );
   }
 
   return (
-    <div className='all-employees'>
+    <Container className='text-center mt-5'>
       <h2>Unsere Mitarbeiter</h2>
-
-      <h3>Employees from server</h3>
-      {employees.map(currentEmployee => <ShowEmployee key={currentEmployee.id} {...currentEmployee} />)}
-
-    </div>
+      {employees.map(ShowEmployee)}
+    </Container>
   );
-
 }
