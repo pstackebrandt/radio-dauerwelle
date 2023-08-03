@@ -28,7 +28,7 @@ import NotFound from "../pages/NotFound";
 
 // Importiere eine Funktion, um Mitarbeiterdaten abzurufen
 import { getEmployees } from '../logic/RestHandler';
-
+import { getNews } from '../logic/NewsRestHandler';
 
 /*
 * Portierung:
@@ -46,7 +46,7 @@ const router = createBrowserRouter(
       <Route index element={<Employees />} loader={getEmployees} />
       {/* <Route index element={<Employees />} /> */}
 
-      <Route path="welcome" element={<Welcome />} />
+      <Route path="welcome" element={<Welcome />} loader={getNews} />
 
       <Route path="eyecatcher" element={<EyeCatcher />} />
 
